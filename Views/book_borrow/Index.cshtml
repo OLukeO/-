@@ -1,0 +1,58 @@
+﻿@model IEnumerable<實驗室管理.Models.book_borrow>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow_sart_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow_sart_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow_sart_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow_estionate_end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow_actual_ent_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_borrow_sart_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_borrow_estionate_end_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_borrow_actual_ent_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.book_borrow_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.book_borrow_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.book_borrow_ID })
+        </td>
+    </tr>
+}
+
+</table>

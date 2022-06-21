@@ -1,0 +1,51 @@
+﻿@model 實驗室管理.Models.book_borrow
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book_borrow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_borrow_sart_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_borrow_sart_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_borrow_estionate_end_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_borrow_estionate_end_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_borrow_actual_ent_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_borrow_actual_ent_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_borrow_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

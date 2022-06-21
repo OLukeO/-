@@ -1,0 +1,64 @@
+﻿@model IEnumerable<實驗室管理.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Auth.auth_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Token.token1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Auth.auth_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Token.token1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.user_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.user_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.user_ID })
+        </td>
+    </tr>
+}
+
+</table>

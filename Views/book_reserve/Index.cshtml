@@ -1,0 +1,90 @@
+﻿@model IEnumerable<實驗室管理.Models.Book>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>書籍管理</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.First().book_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("n_book_name", "", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2  col-md-10">
+                <input type="submit" value="查詢" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table table_bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.book_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.publicsh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book_borrow.book_borrow_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_ID)
+        </th>
+    </tr>
+    @if (Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.book_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.publicsh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.book_borrow.book_borrow_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.user_ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.book_ID })
+                </td>
+
+            </tr>
+
+        }
+
+    }
+    else
+    {
+        <tr>
+            <td colspan="3">
+                查無資料!
+            </td>
+        </tr>
+    }
+
+</table>
+

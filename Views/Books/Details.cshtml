@@ -1,0 +1,68 @@
+﻿@model 實驗室管理.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publicsh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publicsh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_borrow.book_borrow_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_borrow.book_borrow_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_ID)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

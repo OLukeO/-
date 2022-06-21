@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 實驗室管理系統</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("實驗室管理系統", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @if (Session["UserInfo"] == null)
+                        {@Html.ActionLink("登入", "Index", "Login");
+                    }
+                    else
+                    {@Html.ActionLink("登出", "Logout", "Login");
+                }
+                    </li>
+                    <li>
+                        @if (Session["UserInfo"] == null)
+                        {@Html.ActionLink("註冊", "Register", "Login");
+                    }
+
+                    </li>
+                    <li>
+                        @if (Session["UserInfo"] != null && (int)Session["Auth"] == 99)
+                        {
+                            @Html.ActionLink("使用者管理", "Index", "Users")
+                        }
+                    </li>
+                    <li>
+                        @if (Session["UserInfo"] != null)
+                        {
+                            @Html.ActionLink("書籍管理", "Index", "Books")
+                        }
+                    </li>
+                    <li>
+                        @Html.ActionLink("預約借書", "Index", "book_reserve")
+                    </li>
+                    <li>
+                        @Html.ActionLink("書籍借出", "Index", "book_borrow")
+                    </li>
+
+                    <li><a href="https://localhost:44384/WebForm1.aspx">書籍購買紀錄</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿@model 實驗室管理.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        預約書籍
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">預約書籍</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.DisplayFor(modelItem => Model.User.name)
+                        <p>您好!</p>
+                        <p>確定預約後書籍會為您保留三日，請記得來拿取</p>
+                        <p>最晚借閱日期:</p>
+                        <div id="current_date">
+                            <script>
+                                date = new Date();
+                                year = date.getFullYear();
+                                month = date.getMonth() + 1;
+                                day = date.getDate() + 3;
+                                document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.book_borrow.book_borrow_actual_ent_time, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.book_borrow.book_borrow_actual_ent_time, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">預約</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publicsh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publicsh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_borrow.book_borrow_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_borrow.book_borrow_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.user_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.user_ID)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
